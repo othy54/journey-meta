@@ -1,0 +1,19 @@
+---
+export interface Props {
+    text: string;
+    invert: boolean;
+}
+
+const { text, invert } = Astro.props;
+---
+
+<button
+    class:list={[
+        "font-clashdisplay font-normal text-sm border-[1px] border-white py-2 px-4 leading-[17px] rounded-[48px]",
+        { "text-black": invert, "bg-white": invert, "text-white": !invert },
+    ]}
+>
+    {text}
+    {invert}
+</button>
+<style></style>
