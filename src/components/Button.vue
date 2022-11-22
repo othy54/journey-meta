@@ -10,7 +10,9 @@
       rounded-[48px]
     "
     :class="[
-      invert ? 'text-black bg-white' : 'text-white',
+      invert
+        ? 'text-black bg-white'
+        : 'text-white hover:text-black hover:bg-white duration-300 ',
       epilogue ? 'font-epilogue' : 'font-clashdisplay',
     ]"
   >
