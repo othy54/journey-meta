@@ -41,7 +41,7 @@ import Button from "../components/Button.vue";
         text="s'évader"
       />
     </section>
-    <section class="section section-decollage pt-[278px]">
+    <section class="section section-decollage pt-[278px] relative">
       <div class="row max-w-[820px] grid grid-cols-2 mx-auto">
         <div class="relative pt-[133px]">
           <h2 class="title w-[310px]">.une simple phrase et vous décollez</h2>
@@ -88,6 +88,11 @@ import Button from "../components/Button.vue";
           <img class="w-full" src="/images/man-vr.png" alt="" />
         </div>
       </div>
+      <img
+        class="absolute top-0 left-1/2 mt-5 -translate-x-1/2"
+        src="/images/line-union.svg"
+        alt=""
+      />
     </section>
     <section class="section section-method pt-[172px]">
       <div class="row max-w-[820px] mx-auto">
@@ -125,7 +130,7 @@ import Button from "../components/Button.vue";
     <section class="section section-full section-vr mt-14">
       <img class="w-full" src="/images/group-vr.png" alt="" />
     </section>
-    <section class="section section-destination pt-[300px]">
+    <section class="section section-destination pt-[300px] relative">
       <div class="wrapper-marquee flex overflow-hidden">
         <img src="/images/landscape.png" alt="" />
         <div class="mask"></div>
@@ -140,10 +145,97 @@ import Button from "../components/Button.vue";
             ville lumière, déguster une crêpe au chocolat et profiter de la vue
             magnifique depuis la tour Eiffel.
           </p>
+          <Button text="découvrir les destinations" class="mt-4" />
+        </div>
+      </div>
+      <img
+        class="absolute -top-40 left-1/2 -translate-x-1/2"
+        src="/images/line-union.svg"
+        alt=""
+      />
+    </section>
+    <section class="section section-offers mt-40 relative z-10">
+      <div class="row">
+        <h2 class="title text-center">.nos offres</h2>
+        <div
+          class="wrapper-offers grid grid-cols-3 mt-11 max-w-[800px] mx-auto gap-5 h-[470px]"
+        >
+          <div class="offer-item">
+            <div class="wrapper-image"></div>
+            <h3 class="title-offers">.starter</h3>
+            <div class="content-wrapper">
+              <ul class="list">
+                <li>30 min de voyage</li>
+                <li>1 profil</li>
+                <li>Avec publicité</li>
+              </ul>
+              <p class="price">4€/mois</p>
+              <Button text="c'est parti" />
+            </div>
+          </div>
+          <div class="offer-item">
+            <div class="wrapper-image"></div>
+            <h3 class="title-offers">.traveler</h3>
+            <div class="content-wrapper">
+              <ul class="list">
+                <li>1h de voyage</li>
+                <li>3 profil</li>
+                <li>Sans publicité</li>
+              </ul>
+              <p class="price">9€/mois</p>
+              <Button text="c'est parti" />
+            </div>
+          </div>
+          <div class="offer-item">
+            <div class="wrapper-image"></div>
+            <h3 class="title-offers">.explorer</h3>
+            <div class="content-wrapper">
+              <ul class="list">
+                <li>voyage et profils illimités</li>
+                <li>pas de publicité</li>
+                <li>casque premium</li>
+              </ul>
+              <p class="price">19€/mois</p>
+              <Button text="c'est parti" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="h-screen"></section>
+    <section class="section section-footer -mt-20 relative">
+      <img
+        class="w-full mix-blend-overlay"
+        src="/images/bg-footer.png"
+        alt=""
+      />
+      <div class="absolute top-0 left-0 w-full h-full footer-mask"></div>
+      <footer class="absolute left-0 w-full bottom-4 px-12 py-6">
+        <nav class="flex justify-between">
+          <div>
+            <img src="/images/logo-journey.svg" alt="" />
+          </div>
+          <div class="font-clashdisplay text-xs text-center text-white">
+            <a
+              class="underline"
+              href="https://youtube.com/Bastiui"
+              target="_blank"
+            >
+              Abonnez-vous à ma chaîne Youtube
+            </a> pour plus de vidéo sur le Design &lt;3
+          </div>
+          <div class="menu-wrapper">
+            <ul class="menu flex gap-x-8 items-center">
+              <Button text="on rentre ?" />
+            </ul>
+          </div>
+        </nav>
+      </footer>
+      <img
+        class="absolute bottom-[20%] left-1/2 mt-5 -translate-x-1/2 mix-blend-overlay"
+        src="/images/line-union.svg"
+        alt=""
+      />
+    </section>
   </main>
 </Layout>
 
@@ -208,6 +300,101 @@ import Button from "../components/Button.vue";
 
   .wrapper-marquee {
     position: relative;
+  }
+
+  .section-offers {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .section-offers .title-offers {
+    @apply font-clashdisplay font-medium text-2xl text-white mt-5 pl-2;
+  }
+
+  .section-offers .list {
+    @apply list-disc  mt-4;
+  }
+
+  .section-offers .list li {
+    @apply font-epilogue font-thin text-sm leading-[150%] text-white;
+    margin-left: 20px;
+  }
+
+  .section-offers .price {
+    @apply mt-4 text-white font-clashdisplay font-medium text-[15px] leading-[18px];
+  }
+
+  .section-offers Button {
+    @apply mt-4;
+  }
+
+  .wrapper-image {
+    height: 90%;
+  }
+
+  .offer-item .wrapper-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: 0.5s;
+  }
+
+  .offer-item:nth-child(1) .wrapper-image {
+    background-image: url("/images/offer-1.png");
+  }
+
+  .offer-item:nth-child(2) .wrapper-image {
+    background-image: url("/images/offer-2.png");
+  }
+  .offer-item:nth-child(3) .wrapper-image {
+    background-image: url("/images/offer-3.png");
+  }
+
+  .content-wrapper {
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s;
+  }
+
+  .offer-item {
+    transition: 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .offer-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .offer-item:hover .wrapper-image {
+    height: 50%;
+  }
+
+  .offer-item:hover .content-wrapper {
+    height: 50%;
+    padding-left: 8px;
+    padding-bottom: 8px;
+  }
+
+  .section-footer {
+    /* background-image: url("/images/bg-footer.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-blend-mode: overlay; */
+  }
+
+  .footer-mask {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(147, 96, 255, 1) 100%
+    );
+    filter: drop-shadow(0px 4px 4px rgba(147, 96, 255, 0.25));
   }
 </style>
 <script>
